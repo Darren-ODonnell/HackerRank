@@ -12,6 +12,8 @@ public class Solution {
      * Complete the getMoneySpent function below.
      */
     static int getMoneySpent(int[] keyboards, int[] drives, int b) {
+        Arrays.sort(keyboards);
+        Arrays.sort(drives);
         for(int i = keyboards.length-1; i >= 0; i--){
             for(int x = drives.length-1; x >= 0; x--){
                 if((keyboards[i] + drives[x]) <= b){
