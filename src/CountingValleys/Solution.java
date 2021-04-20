@@ -43,7 +43,7 @@ class Result {
             }if(height >= 0 ){
                 inValley = false;
             }
-            
+
         }
         return valleys;
 
