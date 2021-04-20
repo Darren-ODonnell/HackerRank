@@ -23,7 +23,7 @@ public class Solution {
             return "Cat A";
         else if(distY < distX) //cat b catches
             return "Cat B";
-        else 
+        else
             return "Mouse C";
     }
 
