@@ -19,7 +19,7 @@ public class Solution {
                 if(i == 0 && x == 0){
 
                 }else if(i == n && x == n){
-                    
+
                 }else {
                     sum = ar[i] + ar[x];
 
