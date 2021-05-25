@@ -23,24 +23,41 @@ class Result {
 
     public static String timeConversion(String s) {
         // Write your code here
-        String[] parts = new String[s.length()];
-        int x = 0;
-        for(int i = 0; i < s.length(); i+=2){
-            if( i+2 < s.length()){
-                parts[x] = s.substring(i,i+=2);
-                x++;
+        //12:00:00PM" -> 12:00:00
+        //01:00:00PM" -> 13:00:00
+        //12:00:00AM" -> 00:00:00
+        //01:00:00AM" -> 01:00:00
+        String[] parts = s.split(":");
+        String[] finalParts = new String[2];
+
+        finalParts[0] = s.substring(6,7);
+        finalParts[1] = s.substring(8,9);
+        // finalParts[0] = parts[2].substring(0,1);
+        // finalParts[1] = parts[2].substring(2,3);
+
+
+        int hours = 0;
+
+        if(s.charAt(8) == 'P') {
+            hours = 12;
+
+            if (!parts[0].equals("12")){
+                hours += Integer.parseInt(parts[0]);
+            }
+        }else{
+            if (!parts[0].equals("12")){
+                hours = Integer.parseInt(parts[0]);
             }
         }
-        if(s.contains("P")){
-            int hours = Integer.parseInt(parts[0]);
-            hours -= 12;
-            parts[0] = String.valueOf(hours);
+        String hoursStr;
+        if(hours < 10){
+            hoursStr = "0" + hours;
+        }else{
+            hoursStr = String.valueOf(hours);
         }
-        String fullString = "";
-        for(int i = 0; i < parts.length-1; i++){
-            fullString += parts[i];
-        }
-        return fullString;
+
+        return hoursStr + ":" + parts[1] + ":" + parts[2].charAt(0) + parts[2].charAt(1);
+
     }
 
 }
