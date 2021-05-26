@@ -33,7 +33,7 @@ class Result {
         if(y1 < y2){
         }else if (y1 == y2 && m1 < m2){
         }else if(y1 == y2 && m1 == m2 && d1 <= d2){
-            
+
         }else if(y1 > y2){
             fine = 10000;
         }else if(m1 > m2){
