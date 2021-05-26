@@ -16,18 +16,29 @@ public class Solution {
 
     // Complete the migratoryBirds function below.
     static int migratoryBirds(List<Integer> arr) {
-        int max = arr.get(0);
-        int maxIndex = 0;
+        HashMap<Integer, Integer> list= new HashMap<>();
 
-        for(int i = 0 ; i < arr.size(); i++){
-            if(arr.get(i) > max){
-                max = arr.get(i);
-                maxIndex = i;
+        for(int i = 0; i < arr.size(); i++) {
+            if (!list.containsKey(arr.get(i))){
+                list.put(arr.get(i), 1);
+            }else{
+                list.put(arr.get(i), list.get(arr.get(i)) + 1);
             }
         }
-        return maxIndex;
-    }
+        final int[] max = {list.get(1)};
+        int index = -1;
+        final int[] value = {-1};
 
+        list.forEach((k,v) -> {
+            if(v > max[0]){
+                max[0] = v;
+                value[0] = k;
+            }
+            System.out.println("Key: "+k+", Sighting: "+v);
+        });
+
+        return value[0];
+    }
     public static void main(String[] args) throws IOException {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
