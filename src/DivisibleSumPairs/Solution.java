@@ -14,22 +14,17 @@ public class Solution {
     static int divisibleSumPairs(int n, int k, int[] ar) {
         int sum = 0;
         int pairs = 0;
-        for(int i = 0; i < ar.length; i++){
-            for(int x = 0; x < ar.length; x++){
-                if(i == 0 && x == 0){
+        for(int i = 0; i < n-1; i++) {
+            for (int j = i + 1; j < n; j++) {
+                sum = ar[i] + ar[j];
 
-                }else if(i == n && x == n){
-
-                }else {
-                    sum = ar[i] + ar[x];
-
-                    if (sum % k == 0) {
-                        pairs++;
-                    }
+                if (sum % k == 0) {
+                    pairs++;
                 }
+
             }
         }
-        return pairs/2;
+        return pairs;
 
     }
 
@@ -63,4 +58,7 @@ public class Solution {
 
         scanner.close();
     }
+
+
+
 }

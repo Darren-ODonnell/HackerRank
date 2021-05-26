@@ -47,6 +47,7 @@ import java.util.regex.*;
                 arr = temp;
             }
 
+            return arr;
         }
 
         private static final Scanner scanner = new Scanner(System.in);
@@ -84,6 +85,4 @@ import java.util.regex.*;
             scanner.close();
         }
     }
-
-}
 
