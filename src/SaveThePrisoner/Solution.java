@@ -97,7 +97,7 @@ public class Solution {
         2 + 1 = 3
         3 - 1 = 2
          */
- 
+
         nn=999999999;mm=999999999;ss=2;check=1;
         /*
         19 % 7 = 5;
