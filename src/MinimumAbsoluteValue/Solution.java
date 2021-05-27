@@ -24,15 +24,16 @@ class Result {
     public static int minimumAbsoluteDifference(List<Integer> arr) {
         // Write your code here
         int minAbs = 0;
+        Collections.sort(arr);
+
         for(int i = 0; i < arr.size()-1; i++){
-            for(int x = i + 1; x < arr.size(); x++){
+           int x = i+1;
 
                 int absolute = Math.abs(arr.get(i) - arr.get(x));
 
                 if(i == 0 || absolute < minAbs){
                     minAbs = absolute;
                 }
-            }
         }
 
         return minAbs;
