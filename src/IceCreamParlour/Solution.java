@@ -24,30 +24,17 @@ class Result {
 
     public static List<Integer> icecreamParlor(int m, List<Integer> arr) {
         // m = money
-        List<Integer> resultArray = new ArrayList<>();
-        for(int i = 0; i < arr.size(); i++){
-            for(int x = i; x < arr.size(); x++){
-                if(arr.get(i) != 0 && arr.get(x) != 0) {
-                    if (arr.get(i) + arr.get(x) == m) {
-
-                        if (!resultArray.contains(i + 1)) {
-                            resultArray.add(i + 1);
-                        }
-                        if (!resultArray.contains(x + 1)) {
-                            resultArray.add(x + 1);
-                        }
-                    }
+        List<Integer> res = new ArrayList<>();
+        for(int i = 0; i < arr.size() ; i++){
+            for(int j = i+1 ; j < arr.size() ; j++){
+                if(arr.get(i) + arr.get(j) == m){
+                    res.add(i+1);
+                    res.add(j+1);
                 }
             }
         }
-        while(resultArray.size()>2) {
-            resultArray.remove(resultArray.size()-1);
-        }
-        return resultArray;
-        // Write your code here
-
+        return res;
     }
-
 }
 
 public class Solution {
