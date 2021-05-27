@@ -37,30 +37,21 @@ class Result {
 
         int cols = (int) Math.ceil(Math.sqrt(len));
 
-        String str = "";
         String grid = "";
 
         char[][] strArray = new char[cols][rows];
         for(int col = 0; col < cols; col++){
             for(int row = 0; row < rows; row++){
-
                 int index = (row * cols) + col;
-                strArray[col][row] = s.charAt(index);
-                grid += s.charAt(index);
+                if(index < s.length()) {
+                    strArray[col][row] = s.charAt(index);
+                    grid += s.charAt(index);
+                }
+
             }
             grid += " ";
         }
         return grid;
-//        System.out.println(grid);
-//
-//        for (int row = 0; row < rows; row++) {
-//            for(int col = 0; col < cols; col++) {
-//                str += strArray[col][row];
-//            }
-//            str+= "\n";
-//        }
-//        System.out.println(str);
-//        return str;
     }
 
 }
