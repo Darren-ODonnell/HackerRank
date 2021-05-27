@@ -29,11 +29,11 @@ class Result {
         for(int i = 0; i < arr.size()-1; i++){
            int x = i+1;
 
-                int absolute = Math.abs(arr.get(i) - arr.get(x));
+            int absolute = Math.abs(arr.get(i) - arr.get(x));
 
-                if(i == 0 || absolute < minAbs){
-                    minAbs = absolute;
-                }
+            if(i == 0 || absolute < minAbs){
+                minAbs = absolute;
+            }
         }
 
         return minAbs;
