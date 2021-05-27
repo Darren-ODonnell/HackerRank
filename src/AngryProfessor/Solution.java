@@ -14,13 +14,13 @@ public class Solution {
     static String angryProfessor(int k, int[] a) {
 
         //k = threshold for class to be held
-        int amount = 0;
+        int onTimeQty = 0;
         for(int i = 0; i < a.length; i++){
-            if(a[i] < 0){
-                amount++;
+            if(a[i] <= 0){
+                onTimeQty++;
             }
         }
-        if(amount >= k){
+        if(onTimeQty >= k){
             return "NO";
         }else{
             return "YES";
