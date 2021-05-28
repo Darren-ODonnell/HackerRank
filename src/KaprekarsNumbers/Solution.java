@@ -22,29 +22,29 @@ class Result {
      *  2. INTEGER q
      */
 
+    //1 9 45 55 99
+
     public static void kaprekarNumbers(int p, int q) {
         // Write your code here
-        String str = "";
-
-        for(int i = p; i < q; i++){
-            int sqr = i*i;
-
-            String number = String.valueOf(sqr);
-            
-            String[] digits = {number.substring(0,number.length()/2 ) ,
-                                number.substring(number.length()/2, number.length()-1)};
-            int temp = Integer.parseInt(digits[0]) + Integer.parseInt(digits[1]);
-
-
-            if(temp == i){ //keprekar Number
-                str += temp;
-                str += " ";
+        boolean found = false;
+        for(long i = p; i <= q; i++) {
+            String sqr = Long.toString(i * i);
+            int d = sqr.length() - Long.toString(i).length();
+            int l = 0, r = 0;
+            if(d >= 0)
+                r = Integer.parseInt(sqr.substring(d));
+            if(d > 0)
+                l = Integer.parseInt(sqr.substring(0, d));
+            if(r + l == i) {
+                found = true;
+                System.out.print(i + " ");
             }
         }
 
-        System.out.println(str);
-
+        if(!found)
+            System.out.println("INVALID RANGE");
     }
+
 
 }
 
