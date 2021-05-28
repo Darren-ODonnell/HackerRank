@@ -30,17 +30,17 @@ class Result {
         //b = no. black gifts bc = black cost
         //w = no. white gifts wc = white cost
         //z = cost to convert
-        int total = 0;
+        long total = 0;
 
-        if(bc > wc + z){
-            total += wc * w;
-            total += (wc+z) * b;
-        }else if(wc > bc + z){
-            total += bc * b;
-            total += (bc+z) * w;
+        if(bc > (wc + z)){
+            total += (long) wc * w;
+            total += (long) (wc + z) * b;
+        }else if(wc > (bc + z)){
+            total += (long) bc * b;
+            total += (long) (bc + z) * w;
         }else{// z is too high
-            total += wc * w;
-            total += bc * b;
+            total += (long) wc * w;
+            total += (long) bc * b;
         }
         return total;
 
