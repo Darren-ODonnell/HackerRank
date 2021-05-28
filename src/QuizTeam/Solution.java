@@ -22,48 +22,84 @@ class Result {
      */
 
     public static List<Integer> acmTeam(List<String> topic) {
+
         // Write your code here
 
         //Get teams
-        List<String> team = new ArrayList<>();
+        List<Integer> team = new ArrayList<>();
+        int amount = topic.get(0).length();
+
         for(int i = 0; i < topic.size()-1; i++){
-            for(int x = i; x < topic.size(); x++){
-                String str = "";
-                for(int chr = 0; chr < 5; chr++){
+            for(int x = i+1; x < topic.size(); x++){
+
+                int len = 0;
+                for(int chr = 0; chr < amount; chr++){
+
                     if(topic.get(i).charAt(chr) == '1'|| topic.get(x).charAt(chr) == '1'){
-                        str += chr+1;
+                        len++;
                     }
+
                 }
-                team.add(str);
+                team.add(len);
+
             }
         }
 
         //Get Max topics
-        int max = 0;
-        for(int i = 0; i < team.size(); i++){
-            int len = team.get(i).length();
-
-            if(len > max){
-                max = len;
-            }
-        }
-
-        //Get Amount of teams with max topics
         int maxCount = 0;
-        for(int i = 0; i < team.size(); i++){
-            int len = team.get(i).length();
+        Collections.sort(team);
+        int max = team.get(team.size()-1);
 
-            if(len == max){
-                maxCount++;
-            }
+        int i = team.size()-1;
+        while(team.get(i) == max){
+            maxCount++;
+            i--;
         }
+
         List<Integer> newList = new ArrayList<>();
         newList.add(max);
         newList.add(maxCount);
 
         return newList;
 
-
+//        // Write your code here
+//
+//        //Get teams
+//        List<String> team = new ArrayList<>();
+//        int amount = topic.get(0).length();
+//
+//        for(int i = 0; i < topic.size()-1; i++){
+//            for(int x = i+1; x < topic.size(); x++){
+//
+//                String str = "";
+//                for(int chr = 0; chr < amount; chr++){
+//
+//                    if(topic.get(i).charAt(chr) == '1'|| topic.get(x).charAt(chr) == '1'){
+//                        str += '1';
+//                    }
+//
+//                }
+//                team.add(str);
+//
+//            }
+//        }
+//
+//        //Get Max topics
+//        int maxCount = 0;
+//        Collections.sort(team);
+//        int max = team.get(team.size()-1).length();
+//
+//        int i = team.size()-1;
+//        while(team.get(i).length() == max){
+//            maxCount++;
+//            i--;
+//        }
+//
+//        List<Integer> newList = new ArrayList<>();
+//        newList.add(max);
+//        newList.add(maxCount);
+//
+//        return newList;
 
     }
 
