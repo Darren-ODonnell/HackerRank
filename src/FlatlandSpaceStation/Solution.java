@@ -25,19 +25,16 @@ public class Solution {
 
                 }
 
-                if((c[a]-i) < closest){
+                if(Math.abs(c[a]-i) < closest){
                     closest = c[a]-i;
                 }
                 closest = Math.abs(closest);
-
-                System.out.println(" i " +i + " c[a] " + c[a] + " closest " + closest);
-
+                
             }
             closestDistances.add(closest);
         }
         Collections.sort(closestDistances);
-        System.out.println("CD : " + closestDistances);
-        System.out.println("Max : " + closestDistances.get(closestDistances.size()-1));
+
 
         return closestDistances.get(closestDistances.size()-1);
     }
