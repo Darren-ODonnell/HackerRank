@@ -24,7 +24,7 @@ class Result {
     public static String organizingContainers(List<List<Integer>> container) {
         // Write your code here
 
-        int size = container.get(i)
+//        int size = container.get(i)
 
         //Example : [1,4][2.3]
         // Set 1
